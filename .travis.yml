@@ -1,0 +1,7 @@
+sudo: required
+services:
+    - dcoker
+before_install:
+    - docker build -t sahildhiman/docker-deploy -f Dockerfile.dev .
+script:
+    - docker run sahildhiman/docker-deploy npm run test -- --coverage
